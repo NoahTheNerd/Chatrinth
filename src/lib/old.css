@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans');
+
+:root {
+    --purple: #b55bff;
+    --purple2: #6a16e9;
+
+    --i: #373c48;
+    --h: #1c1f28;
+    --g: #464e5f;
+    --f: #111;
+    --e: #1d2029;
+    --d: #292d37;
+    --c: #ddd;
+    --b: #eee;
+    --a: #fff;
+}
+
+@keyframes fillButton {
+    from {
+        background-image: linear-gradient(180deg, transparent 0%, var(--b) 0%) !important;
+        color: var(--c)
+    }
+    to {
+        background-image: linear-gradient(180deg, transparent 50%, var(--b) 50%) !important;
+        color: var(--f)
+    }
+}
+
+body {
+    background-color: var(--e);
+    color: var(--b);
+    scroll-behavior: smooth;
+
+    font-family:'Nunito Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2em;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link {
+    background-position-y: -0%;
+    background-image: linear-gradient(180deg, transparent 50%, var(--purple) 50%) !important;
+    transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
+
+    background-size: auto 190%;
+    padding: 2px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover {
+    background-position-y: 100%;
+    color: var(--e);
+    transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
+}
+
+
+/* Input Stylings */
+.input_text {
+    border: none;
+    background-color: var(--d);
+    padding: 6px 16px 6px 16px;
+    border-radius: 8px;
+    color: var(--c);
+    transition: 0.1s ease;
+}
+
+.input_text:hover {
+    border-radius: 4px;
+    transition: 0.1 ease;
+}
+
+.input_text:focus {
+    border-radius: 4px;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.088) 0px 1px 3px 0px, rgba(27, 31, 35, 0.227) 0px 0px 0px 1px;
+    transition: 0.1s ease;
+}
+
+.input_textlarge {
+    width: 100%;
+}
+
+/* Button Stylings */
+.button_primary {
+    border: none;
+    background-color: var(--purple);
+    color: var(--e);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 16px 6px 16px;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.button_primary:hover {
+    border-radius: 4px;
+    background-color: var(--purple2);
+    transition: 0.25s;
+}
+
+.button_secondary {
+    border: solid 2px var(--b);
+    background-image: linear-gradient(180deg, var(--e) 50%, var(--b) 50%) !important;
+    background-size: 100% 220%;
+    background-position-y: 0%;
+    padding: 5px 15px 5px 15px;
+    border-radius: 8px;
+    color: var(--c);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.button_secondary:hover {
+    background-position-y: 95%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--f);
+}
+
+.button_shallow {
+    border: none;
+    background: none;
+    color: var(--blue);
+    cursor: pointer;
+    padding: 6px 16px 6px 16px;
+    border-radius: 6px;
+}
+
+.button_shallow:hover {
+    text-decoration: underline;
+}
+
+.button_checkbox {
+    width: 16px;
+    height: 16px;
+    border: none;
+    background-color: var(--g);
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.button_checkbox[checked='true'] {
+    background-color: var(--purple);
+}
+
+label {
+    user-select: none;
+}
+
+label[for] {
+    cursor: pointer;
+}
+
+/* UI */
+.ui_columns {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ui_columns > div {
+    margin: 5px;
+}
+
+.ui_modules {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--d);
+    width: min-content
+}
+
+.ui_moduleslist {
+    display: flex;
+    flex-direction: column;
+}
+
+.ui_modulecard {
+    background-color: var(--i);
+    padding: 20px;
+    border-radius: 20px;
+    margin: 5px;
+    display: flex;
+    width: 512px;
+}
+
+.ui_modulecard > div > b { font-size: 120%; letter-spacing: 1px; }
+
+.ui_modulecard > div { margin: 5px; }
+
+.ui_modulecard_image {
+    border-radius: 10px;
+    object-fit: cover;
+    height: 100px;
+    width: 100px;
+}
+
+.ui_tags {
+    padding: 20px;
+    border-radius: 20px;
+    background: var(--d);
+    width: max-content;
+    min-height: 504px;
+    min-width: 10%;
+}
+
+.ui_tags_list {
+    display: flex;
+    flex-direction: column;
+}
+
+.ui_tags_item {
+    margin-left: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.ui_tags_item > button > svg {
+    transform: translateY(-1px);
+}
+
+.ui_tags_item:hover {
+    background-color: var(--e);
+    color: var(--c)
+}
+
+/* Theme shenanigans */
+/* 
+body[theme="dark"] {
+    --blue: #4658fc;
+    --blue2: #6361f4; 
+    --g: #555;
+    --f: #111;
+    --e: #222;
+    --d: #333;
+    --c: #ddd;
+    --b: #eee;
+    --a: #fff;
+}
+
+body[theme="dark"] .button_primary {
+    color: var(--b);
+}
+body[theme="dark"] .button_shallow {
+    color: var(--g);
+} */
+
+/* a11y */
+
+@media (prefers-reduced-motion) {
+    .link {
+        transition: 0s;
+    } 
+    .link:hover {
+        transition: 0s;
+    } 
+    .button_primary {
+        transition: 0s;
+    } 
+    .button_primary:hover {
+        transition: 0s;
+    }
+    @keyframes fillButton {
+        0% {
+            background-image: linear-gradient(180deg, transparent 50%, var(--b) 50%) !important;
+            color: var(--f)
+        }
+    }
+}

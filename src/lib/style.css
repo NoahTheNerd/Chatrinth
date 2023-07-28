@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans');
+
+:root {
+    --brand: #ca5fff;
+
+        --z: #000;
+        --y: #111;
+        --x: #222;
+        --w: #333;
+        --v: #444;
+        --u: #555;
+    
+        --d: #ccc;
+        --c: #ddd;
+        --b: #eee;
+        --a: #fff;
+}
+
+body {
+    color: var(--x);
+    background-color: var(--b);
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+/* ------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --brand: #ca5fff;
+
+        --z: #fff;
+        --y: #eee;
+        --x: #ddd;
+        --w: #ccc;
+        --v: #bbb;
+        --u: #aaa;
+    
+        --d: #333;
+        --c: #222;
+        --b: #111;
+        --a: #000;
+    }
+}
+
+/* ------------------------------- */
+
+.main { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main_contents {
+    display: flex;
+    flex-wrap: wrap-reverse;
+}
+
+.main_contents > div {
+    margin: 5px;
+}
+
+/* Links */
+.link {
+    background-position-y: -0%;
+    background-image: linear-gradient(180deg, transparent 50%, var(--x) 50%) !important;
+    transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
+
+    background-size: auto 190%;
+    padding: 2px 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover {
+    background-position-y: 100%;
+    color: var(--b);
+    transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
+}
+
+/* Miscellaneous */
+
+.multi-info {
+    display: flex;
+}
+
+.multi-info > div {
+    margin-top: 5px;
+}
+
+.icon {
+    transform: translateY(3.5px);
+}
+
+.trans {
+    filter: opacity(0.75)
+}
+
+/* Buttons */
+
+label[for] {
+    cursor: pointer;
+    user-select: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.button_1 {
+    /* This is not modified by the effect, but does make it look more complete. */
+    border: solid 2px var(--y);
+  
+    /* Effect */
+    background: none;
+    background-image: linear-gradient(180deg, transparent 50%, var(--x) 50%);
+    background-size: 220% 220%;
+    background-position-y: 0%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
+    /* Extra Styles */
+    padding: 5px 15px 5px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+}
+  
+.button_1:hover {
+    background-position-y: 92.5%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--c);
+}
+
+.button_checkbox {
+    width: 20px;
+    height: 20px;
+    background-color: var(--d);
+
+    border-radius: 5px;
+
+    border: none;
+
+    transition: 0.1s
+}
+
+.button_checkbox:hover {
+    filter: brightness(0.8)
+}
+
+.button_checkbox[checked="true"] {
+    background-color: var(--brand);
+}
+
+.button_checkbox > svg {
+    transform: translateX(-1px)
+}
+
+/* Inputs */
+
+.input_text {
+    /* This is not modified by the effect, but does make it look more complete. */
+    border: solid 2px var(--y);
+  
+    /* Effect */
+    background: none;
+    background-image: linear-gradient(180deg, transparent 50%, var(--d) 50%);
+    background-size: 220% 220%;
+    background-position-y: 0%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
+    /* Extra Styles */
+    padding: 5px 15px 5px 15px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: text;
+}
+
+.input_text:focus,
+.input_text:hover {
+    stroke: none;
+    outline: none;
+    background-position-y: 92.5%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
+}
+
+/* Modulecard */
+.modulecard {
+    display:flex;
+
+    background-color: var(--c);
+    margin-top: 12px;
+    padding: 8px 16px 8px 16px;
+
+    border-radius: 16px;
+
+    align-items: center;
+
+    /* it must be 128 */
+    height: 128px;
+    max-height: 128px;
+    min-height: 128px;
+}
+
+.modulecard > div {
+    margin: 5px;
+}
+
+.modulecard h3 {
+    line-height: 0.1;
+    color: var(--x);
+    letter-spacing: 0.75pt;
+}
+
+.modulecard span {
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;
+
+    color: var(--w);
+
+    max-width: 42vw;
+}
+
+.modulecard_image {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    object-position: top;
+
+    background-color: var(--d);
+
+    border-radius: 8px;
+}
+
+/* Tags */
+
+.tags_list {
+    display: block;
+    white-space: nowrap;
+}
+
+.tags_item {
+    margin: 4px;
+    cursor: default;
+}
