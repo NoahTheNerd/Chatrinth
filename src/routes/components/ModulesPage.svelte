@@ -182,18 +182,17 @@
 
     function abbreviateNumber(value : number) {
         let newValue = value;
-        if (value >= 1000) {
-            let suffixes = ["", "k", "m", "b","t"];
-            let suffixNum = Math.floor( (""+value).length/3 );
-            let shortValue = '';
-            for (let precision = 2; precision >= 1; precision--) {
-                shortValue = parseFloat( (suffixNum != 0 ? (value / Math.pow(1000,suffixNum) ) : value).toPrecision(precision));
-                let dotLessShortValue = (shortValue + '').replace(/[^a-zA-Z 0-9]+/g,'');
-                if (dotLessShortValue.length <= 2) { break; }
-            }
-            if (shortValue % 1 != 0)  shortValue = shortValue.toFixed(1);
-            newValue = shortValue+suffixes[suffixNum];
+        const suffixes = ["", "K", "M", "B","T"];
+        let suffixNum = 0;
+        while (newValue >= 1000) {
+            newValue /= 1000;
+            suffixNum++;
         }
+
+        if (value>999) newValue = newValue.toPrecision(3);
+
+        newValue += suffixes[suffixNum];
+
         return newValue;
     }
 
@@ -289,8 +288,8 @@
                     {#if moduleData.owner.id!==-1} 
                     <div class="multi-info trans modulecard_footer">
                         <div>
-                            <svg alt="Creator" title="Creator" xmlns="http://www.w3.org/2000/svg" class="icon" height="20" fill="var(--{moduleData.owner.rank=='trusted' ? 'blue' : moduleData.owner.rank=='admin' ? 'red' : ''})" viewBox="0 -960 960 960" width="20"><path d="M480-479q-64.5 0-109.75-45.25T325-634q0-64.5 45.25-109.75T480-789q64.5 0 109.75 45.25T635-634q0 64.5-45.25 109.75T480-479ZM169-173v-106q0-33 16.75-60.25T231-381q61-30 123.25-45.25T480-441.5q63.5 0 125.75 15.25T729-381q28.5 14.5 45.25 41.75T791-279v106H169Z"/></svg>
-                            <fakespan style="color: var(--{moduleData.owner.rank=='trusted' ? 'blue' : moduleData.owner.rank=='admin' ? 'red' : ''})">{moduleData.owner.name}</fakespan> 
+                            <svg alt="Creator" title="Creator" xmlns="http://www.w3.org/2000/svg" class="icon" height="20" fill="var(--{moduleData.owner.rank=='trusted' ? 'blue' : moduleData.owner.rank=='admin' ? 'red' : 'x'})" viewBox="0 -960 960 960" width="20"><path d="M480-479q-64.5 0-109.75-45.25T325-634q0-64.5 45.25-109.75T480-789q64.5 0 109.75 45.25T635-634q0 64.5-45.25 109.75T480-479ZM169-173v-106q0-33 16.75-60.25T231-381q61-30 123.25-45.25T480-441.5q63.5 0 125.75 15.25T729-381q28.5 14.5 45.25 41.75T791-279v106H169Z"/></svg>
+                            <fakespan style="color: var(--{moduleData.owner.rank=='trusted' ? 'blue' : moduleData.owner.rank=='admin' ? 'red' : 'x'})">{moduleData.owner.name}</fakespan> 
                         </div>
                         
                         <div>
