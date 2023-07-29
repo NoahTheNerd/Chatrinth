@@ -143,17 +143,17 @@ button {
 .button_checkbox {
     width: 20px;
     height: 20px;
-    background-color: var(--d);
+    background-color: var(--c);
 
     border-radius: 5px;
 
     border: none;
 
-    transition: 0.1s
+    transition: 0.2s ease
 }
 
 .button_checkbox:hover {
-    filter: brightness(0.8)
+    filter: brightness(0.95)
 }
 
 .button_checkbox[checked="true"] {
