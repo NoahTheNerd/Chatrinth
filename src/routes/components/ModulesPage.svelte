@@ -272,7 +272,7 @@
         {#each modules as moduleData}
             <div class="modulecard">
                 <div>
-                    <img src="{moduleData.image ? moduleData.image : 'fallback.png'}" class="modulecard_image" alt="{moduleData.name}">
+                    <img src="{moduleData.image ? moduleData.image : 'fallback.png'}" class="modulecard_image skeleton" alt="{moduleData.name}">
                 </div>
                 <div class="modulecard_text">
                     <h3>{moduleData.name}</h3>
