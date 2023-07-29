@@ -5,7 +5,7 @@ export default interface CTModule {
     owner: {
         id: number,
         name: string,
-        rank: string
+        rank: 'default' | 'trusted' | 'admin'
     }, // The owner of the module
     name: string,
     description: string,
