@@ -65,9 +65,9 @@ body {
     background-image: linear-gradient(180deg, transparent 50%, var(--x) 50%) !important;
     transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
 
-    background-size: auto 190%;
+    background-size: auto 200%;
     padding: 2px 0;
-    text-decoration: none;
+    text-decoration: underline;
     color: inherit;
 }
 
@@ -81,10 +81,17 @@ body {
 
 .multi-info {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
-.multi-info > div {
-    margin-top: 5px;
+.multi-info > * {
+    margin: 5px;
+}
+
+.high-margin {
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .icon {
@@ -93,6 +100,10 @@ body {
 
 .trans {
     filter: opacity(0.75)
+}
+
+.center {
+    text-align: center;
 }
 
 /* Buttons */
@@ -108,7 +119,7 @@ button {
 
 .button_1 {
     /* This is not modified by the effect, but does make it look more complete. */
-    border: solid 2px var(--y);
+    border: solid 1px var(--x);
   
     /* Effect */
     background: none;
@@ -151,14 +162,48 @@ button {
 }
 
 .button_checkbox > svg {
-    transform: translateX(-1px)
+    transform: translateX(-1px) translateY(-1px);
+}
+
+.button_min {
+    width: 27px;
+    padding: 5px 8px 5px 8px;
+    font-weight: bold;
+    border-radius: 50%;
 }
 
 /* Inputs */
 
 .input_text {
     /* This is not modified by the effect, but does make it look more complete. */
-    border: solid 2px var(--y);
+    border: none;
+    border-bottom: dashed 1px var(--x);
+  
+    /* Effect */
+    background: none;
+    background-image: linear-gradient(180deg, transparent 50%, var(--c) 50%);
+    background-size: 220% 220%;
+    background-position-y: 0%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
+    /* Extra Styles */
+    padding: 5px 15px 5px 15px;
+    font-weight: 500;
+    cursor: text;
+}
+
+.input_text:focus,
+.input_text:hover {
+    stroke: none;
+    outline: none;
+    background-position-y: 92.5%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--z);
+}
+
+.input_number {
+    /* This is not modified by the effect, but does make it look more complete. */
+    border: solid 1px var(--y);
   
     /* Effect */
     background: none;
@@ -168,14 +213,15 @@ button {
     transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     color: var(--x);
     /* Extra Styles */
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
     border-radius: 8px;
     font-weight: 500;
     cursor: text;
+    width: 48px;
 }
 
-.input_text:focus,
-.input_text:hover {
+.input_number:focus,
+.input_number:hover {
     stroke: none;
     outline: none;
     background-position-y: 92.5%;
@@ -209,6 +255,7 @@ button {
     line-height: 0.1;
     color: var(--x);
     letter-spacing: 0.75pt;
+    margin-top: 0.5em;
 }
 
 .modulecard span {
@@ -232,6 +279,10 @@ button {
     background-color: var(--d);
 
     border-radius: 8px;
+}
+
+.modulecard_text {
+    width: 100%;
 }
 
 /* Tags */
