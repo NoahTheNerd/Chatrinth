@@ -82,7 +82,6 @@ body {
 .multi-info {
     display: flex;
     justify-content: space-between;
-    flex-wrap: nowrap;
 }
 
 .multi-info > * {
@@ -170,6 +169,14 @@ button {
     padding: 5px 8px 5px 8px;
     font-weight: bold;
     border-radius: 50%;
+}
+
+/* Flex */
+
+.flex_1 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 /* Inputs */
@@ -267,7 +274,7 @@ button {
 
     color: var(--w);
 
-    max-width: 42vw;
+    width: 48vw;
 }
 
 .modulecard_image {
@@ -295,4 +302,10 @@ button {
 .tags_item {
     margin: 4px;
     cursor: default;
+}
+
+@media (pointer: none), (pointer: coarse) {
+    .modulecard_footerentry {
+        display: none;
+    }
 }

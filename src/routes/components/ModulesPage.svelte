@@ -197,7 +197,7 @@
     }
 
     function changePage(amount : number) {
-        if (pagenumber<2) return pagenumber = 1
+        if (pagenumber<2 && amount<1) return pagenumber = 1
         pagenumber = pagenumber + amount
         sendQuery()
     }
@@ -251,7 +251,7 @@
 <div class="modules">
     <h2>Modules</h2>
 
-    <div class="multi-info">
+    <div class="multi-info flex_1">
         <div>
             <form>
                 <input id="query_text" type="text" class="input_text" placeholder="Search for modules"> 
@@ -264,7 +264,7 @@
         <div>
             <button class="button_1 button_min" on:click={() => {changePage(-1)}}>&lt;</button>
             <span class="high-margin">Page {pagenumber}</span>
-            <button class="button_1 button_min" on:click={() => {changePage(-1)}}>&gt;</button>
+            <button class="button_1 button_min" on:click={() => {changePage(1)}}>&gt;</button>
         </div>
     </div>
 
@@ -280,6 +280,7 @@
                                         .replace(/<p>/g, '<span>')
                                         .replace(/<\/p>/g, '</span>') 
                                         .replace(/<a/g, '<a class="link" ')
+                                        .replace(/<img .*?>/g, '[Image]')
                     : 'A ChatTriggers module'}</span>
 
                     
@@ -288,12 +289,12 @@
                     <div class="multi-info trans modulecard_footer">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" height="20" fill="var(--w)" viewBox="0 -960 960 960" width="20"><path d="M480-479q-64.5 0-109.75-45.25T325-634q0-64.5 45.25-109.75T480-789q64.5 0 109.75 45.25T635-634q0 64.5-45.25 109.75T480-479ZM169-173v-106q0-33 16.75-60.25T231-381q61-30 123.25-45.25T480-441.5q63.5 0 125.75 15.25T729-381q28.5 14.5 45.25 41.75T791-279v106H169Z"/></svg>
-                            <span class="modulecard_footerentry">Creator: </span> {moduleData.owner.name} 
+                            <fakespan class="modulecard_footerentry">Creator:</fakespan> {moduleData.owner.name} 
                         </div>
                         
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" class="icon" height="20" fill="var(--w)" viewBox="0 -960 960 960" width="20"><path d="M480-325 288.5-516.5l52-53 102 102V-790h75v322.5l102-102 52 53L480-325ZM245-170q-30.938 0-52.969-22.031Q170-214.062 170-245v-117.5h75V-245h470v-117.5h75V-245q0 30.938-22.031 52.969Q745.938-170 715-170H245Z"/></svg>
-                            <span class="modulecard_footerentry">Downloads: </span> {abbreviateNumber(moduleData.downloads)}
+                            <fakespan class="modulecard_footerentry">Downloads:</fakespan>  {abbreviateNumber(moduleData.downloads)}
                         </div>
                     </div>
                     {/if}
