@@ -1,10 +1,9 @@
 <script lang="ts">
     //@ts-nocheck
     import { onMount } from "svelte";
-    import proxyGet from "$lib/proxy";
-
     import { marked } from 'marked';
     import type CTModule from "$lib/interfaces/CTModule";
+    import FetchConfig from "$lib/FetchConfig";
 
     const BaseModules = {
         dead: {
@@ -118,9 +117,12 @@
         versionTags = versionTags
     }
 
-    async function sendQuery() {
+    async function sendQuery(savePage : boolean = false) {
+
         const details = await getQueryDetails()
-        proxyGet('https://www.chattriggers.com/api/modules'+details).then((res) => {
+        fetch('https://www.chattriggers.com/api/modules'+details, FetchConfig).then((res) => {
+            if (!savePage) pagenumber = 1
+            
             const data = res.data
             modules = []
             data.modules.forEach((moduleData : CTModule) => {
@@ -137,7 +139,7 @@
     }
 
     onMount(() => {
-        proxyGet('https://www.chattriggers.com/api/tags').then((res) => {
+        fetch('https://www.chattriggers.com/api/tags', FetchConfig).then((res) => {
             const data = res.data
             regenerateTags(data)
         }).catch((error) => {

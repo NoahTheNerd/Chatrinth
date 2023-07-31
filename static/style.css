@@ -82,6 +82,12 @@ body {
 
 /* Miscellaneous */
 
+.size-change {
+    width: 80vw;
+    
+
+}
+
 .multi-info {
     display: flex;
     justify-content: space-between;
@@ -258,10 +264,17 @@ button {
 }
 
 .modulecard > div {
-    margin: 5px;
+    margin: 10px;
 }
 
 .modulecard h3 {
+    line-height: 0.1;
+    color: var(--x);
+    letter-spacing: 0.75pt;
+    margin-top: 0.5em;
+}
+
+.modulecard h1 {
     line-height: 0.1;
     color: var(--x);
     letter-spacing: 0.75pt;
@@ -281,18 +294,35 @@ button {
 }
 
 .modulecard_image {
-    height: 100px;
-    width: 100px;
+    height: 111px;
+    width: 111px;
     object-fit: cover;
-    object-position: top;
+    object-position: top left;
 
     background-color: var(--d);
-
-    border-radius: 8px;
+    border-radius: 12px;
 }
 
 .modulecard_text {
     width: 100%;
+}
+
+/* Releasecard */
+.releasecard {
+    background-color: var(--d);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+/* Card */
+.card {
+    margin: 10px 0px 10px;
+    width: 100%;
+    background-color: var(--c);
+    padding: 8px 16px 8px 16px;
+
+    border-radius: 16px;
 }
 
 /* Tags */

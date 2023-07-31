@@ -1,0 +1,1 @@
+export default { mode: 'cors', referrerPolicy: 'no-referrer' }
