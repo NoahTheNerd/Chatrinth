@@ -4,6 +4,7 @@
     import { marked } from 'marked';
     import type CTModule from "$lib/interfaces/CTModule";
     import FetchConfig from "$lib/FetchConfig";
+    import ctFetch from '$lib/ctFetch';
 
     const BaseModules = {
         dead: {
@@ -120,7 +121,7 @@
     async function sendQuery(savePage : boolean = false) {
 
         const details = await getQueryDetails()
-        fetch('https://www.chattriggers.com/api/modules'+details, FetchConfig).then((res) => {
+        ctFetch('modules'+details, FetchConfig).then((res) => {
             if (!savePage) pagenumber = 1
             
             const data = res.data
@@ -139,7 +140,7 @@
     }
 
     onMount(() => {
-        fetch('https://www.chattriggers.com/api/tags', FetchConfig).then((res) => {
+        ctFetch('tags', FetchConfig).then((res) => {
             const data = res.data
             regenerateTags(data)
         }).catch((error) => {
@@ -199,9 +200,9 @@
     }
 
     function changePage(amount : number) {
-        if (pagenumber<2 && amount<1) return pagenumber = 1
+        if (pagenumber==1 && amount==-1) return pagenumber = 1
         pagenumber = pagenumber + amount
-        sendQuery()
+        sendQuery(true)
     }
 </script>
 
@@ -274,10 +275,12 @@
         {#each modules as moduleData}
             <div class="modulecard">
                 <div>
-                    <img src="{moduleData.image ? moduleData.image : 'fallback.png'}" class="modulecard_image" alt="{moduleData.name}">
+                    <a href="/ct/mod?id={moduleData.name}">
+                        <img src="{moduleData.image ? moduleData.image : 'fallback.png'}" class="modulecard_image" alt="{moduleData.name}">
+                    </a>
                 </div>
                 <div class="modulecard_text">
-                    <h3>{moduleData.name}</h3>
+                    <h3><a href="/ct/mod?id={moduleData.name}" class="link">{moduleData.name}</a></h3>
                     <span>{@html moduleData.description ? marked.parse( moduleData.description.replace(/#/g, '').split('\n')[0], { headerIds: false, mangle: false } )
                                         .replace(/<p>/g, '<span>')
                                         .replace(/<\/p>/g, '</span>') 

@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import type CTModule from "$lib/interfaces/CTModule";
     import FetchConfig from "$lib/FetchConfig";
+    import ctFetch from '$lib/ctFetch';
 
     // @ts-ignore
     import { marked } from 'marked';
@@ -13,7 +14,7 @@
     onMount(() => {
         params = new URLSearchParams(window.location.search)
 
-            fetch(`https://www.chattriggers.com/api/modules/${params.get('id')}`, FetchConfig).then((res) => {
+            ctFetch(`modules/${params.get('id')}`, FetchConfig).then((res) => {
                 module = res.data
 
                 setTimeout(() => {
@@ -85,7 +86,7 @@
                     <br/>
                     {/if}
                     <br/>
-                    <a href="https://chattriggers.com/modules/v/ixMod"><button class="button_1">Direct Download</button></a>
+                    <a href="https://chattriggers.com/modules/v/"><button class="button_1">Direct Download</button></a>
                 </div>
             {/each}
             {:else}

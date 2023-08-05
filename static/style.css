@@ -53,6 +53,13 @@ body {
     justify-content: center;
 }
 
+.force-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
 .main_contents {
     display: flex;
     flex-wrap: wrap-reverse;
@@ -80,12 +87,16 @@ body {
     transition: all 0.2s cubic-bezier(0.61, 1, 0.88, 1);;
 }
 
+.muted_link {
+    margin: 2px;
+    color: var(--v);
+    text-decoration: underline;
+}
+
 /* Miscellaneous */
 
 .size-change {
     width: 80vw;
-    
-
 }
 
 .multi-info {
@@ -178,6 +189,7 @@ button {
     padding: 5px 8px 5px 8px;
     font-weight: bold;
     border-radius: 50%;
+    text-align: center;
 }
 
 /* Flex */
@@ -215,6 +227,33 @@ button {
     background-position-y: 92.5%;
     transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
     color: var(--z);
+}
+
+.input_textbox {
+    /* This is not modified by the effect, but does make it look more complete. */
+    border: solid 1px var(--y);
+  
+    /* Effect */
+    background: none;
+    background-image: linear-gradient(180deg, transparent 50%, #88888822 50%);
+    background-size: 220% 220%;
+    background-position-y: 0%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
+    /* Extra Styles */
+    padding: 5px 10px 5px 10px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: text;
+}
+
+.input_textbox:focus,
+.input_textbox:hover {
+    stroke: none;
+    outline: none;
+    background-position-y: 92.5%;
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    color: var(--x);
 }
 
 .input_number {
@@ -305,6 +344,16 @@ button {
 
 .modulecard_text {
     width: 100%;
+}
+
+/* Authentication */
+.loginform {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginform > * {
+    margin: 5px;
 }
 
 /* Releasecard */
